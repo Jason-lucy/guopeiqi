@@ -25,11 +25,13 @@ function Hero(){
  const seek=()=>{if(!v.seeking&&Number.isFinite(v.duration)&&Math.abs(v.currentTime-target)>.025)v.currentTime=target};
  const move=(e:MouseEvent)=>{if(prev!==undefined&&Number.isFinite(v.duration)){target=Math.min(v.duration,Math.max(0,target+(e.clientX-prev)/innerWidth*.8*v.duration));seek()}prev=e.clientX};
  window.addEventListener('mousemove',move);v.addEventListener('seeked',seek);return ()=>{window.removeEventListener('mousemove',move);v.removeEventListener('seeked',seek)}},[]);
- const links=<><a href="#work">作品</a><a href="#experience">履历</a><a href="#about">关于我</a></>;
+ const links=<><a href="#profile">个人信息</a><a href="#experience">工作经历</a><a href="#projects">项目经历</a><a href="#work">作品集</a></>;
  return <><header className="mast"><a href="#top" className="wordmark">Guo Peiqi ✳︎</a><nav>{links}</nav><a className="mail" href={'mailto:'+email}>联系我 ↗</a><button className="toggle" aria-expanded={open} aria-label="切换导航" onClick={()=>menu(!open)}>{open?'关闭 ×':'菜单 ☰'}</button></header>{open&&<nav className="overlay" onClick={()=>menu(false)}>{links}<a href={'mailto:'+email}>联系我 ↗</a></nav>}
  <section className="cover"><img className="poster" src={portrait} alt="根据郭佩琦简历照片创作的数字肖像"/><video ref={video} src={videoURL} muted playsInline preload="auto" onLoadedData={e=>e.currentTarget.classList.add('ready')} onError={e=>e.currentTarget.classList.remove('ready')}/>
- <div className="covercopy"><small>个人作品集　／　2026</small><h1>郭佩琦</h1><div className="subtitle">AI 产品与解决方案<br/>南京 · 可适应出差与驻场</div>
+ <div className="covercopy"><small>个人作品集　／　2026</small><h1>郭佩琦</h1><div className="subtitle">AI 产品与解决方案<br/>现居上海 · 目标上海 / 南京</div>
  <p className="story" aria-label={story}><span aria-hidden="true">{typing.displayed}{!typing.done&&<i/>}</span></p>
  <div className="flex flex-wrap gap-2 pills">{roles.map(([name],i)=><button key={name} aria-pressed={role===i} onClick={()=>select(i)}>{name}</button>)}<a href={'#'+id}>{action} ↘</a><button className="copy" onClick={async()=>{try{await navigator.clipboard.writeText(email);feedback('已复制邮箱 ✓')}catch{feedback(email)}}}>{copy} ▢</button></div></div><a className="bottom" href="#work">01 / 作品选集 ↓</a></section></>;
 }
 createRoot(document.getElementById('entry')!).render(<Hero/>);
+
+
