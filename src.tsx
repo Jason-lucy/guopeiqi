@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
 import './hero.css';
-import portrait from './portrait.jpg';
+import portrait from './portrait-young.jpg';
 const videoURL='https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_041744_63efcd78-bf7d-4039-99e2-2461e8a61903.mp4';
 const roles=[
  ['AI 产品经理','我用 GeoPulse 追踪同一组问题在不同模型中的回答，保留每条判断的原文证据。','geo','查看 GeoPulse'],
